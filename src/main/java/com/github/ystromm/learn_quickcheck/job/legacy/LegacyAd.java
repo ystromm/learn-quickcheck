@@ -19,10 +19,10 @@ public class LegacyAd {
     @NonNull
     private Long id;
     @NonNull
+    private String employer;
+    @NonNull
     @Singular
-    private List<String> descriptions = ImmutableList.of();
+    private List<String> descriptions;
     @NonNull
-    private String address = "";
-    @NonNull
-    private String employer = "";
+    private String address;
 }

@@ -23,12 +23,12 @@ public class Result {
     @NonNull
     private LegacyAd legacyAd;
     @NonNull
-    private Optional<Ad> ad = Optional.empty();
+    private Optional<Ad> ad;
     @Singular
     @NonNull
-    private Set<Problem> problems = ImmutableSet.of();
+    private Set<Problem> problems;
 
     public static Result empty(LegacyAd legacyAd) {
-        return Result.builder().legacyAd(legacyAd).build();
+        return Result.builder().legacyAd(legacyAd).ad(Optional.<Ad>empty()).problems(ImmutableSet.<Problem>of()).build();
     }
 }

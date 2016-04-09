@@ -17,12 +17,12 @@ public class ResultTest {
     }
 
     @Test
-    public void empty_shoul_not_have_an_ad() {
+    public void empty_should_not_have_an_ad() {
         assertThat(Result.empty(legacyAd()).getAd(), equalTo(Optional.<Ad>empty()));
     }
 
     private LegacyAd legacyAd() {
-        return LegacyAd.builder().build();
+        return LegacyAd.builder().id(1l).description("descriptionValue").address("adressValue").employer("employerValue").build();
     }
 
 }

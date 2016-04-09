@@ -5,7 +5,7 @@ repositories {
 }
 
 dependencies {
-    compile 'org.projectlombok:lombok:1.16.8'
+    compile 'org.projectlombok:lombok:1.16.0'
     compile "com.google.guava:guava:19.0"
     testCompile 'org.hamcrest:hamcrest-junit:2.0.0.0'
     testCompile('net.java:quickcheck:0.6') {
