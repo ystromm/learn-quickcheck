@@ -69,9 +69,13 @@ public class ConversionTest {
     public void empty_descriptions_should_have_problem_empty_description() {
         for (LegacyAd legacyAd : legacyAds()) {
             if (legacyAd.getDescriptions().isEmpty()) {
-                assertThat(Conversion.legacyAd2Ad(legacyAd).getProblems(), contains(EMPTY_DESCRIPTION));
+                assertThat(conversion().legacyAd2Ad(legacyAd).getProblems(), contains(EMPTY_DESCRIPTION));
             }
         }
+    }
+
+    private Conversion conversion() {
+        return new Conversion(new GetLocation());
     }
 
     @Test
@@ -79,7 +83,7 @@ public class ConversionTest {
         for (LegacyAd legacyAd : legacyAds()) {
             if (!legacyAd.getDescriptions().isEmpty()) {
                 final String heading = legacyAd.getDescriptions().get(0);
-                final Result result = Conversion.legacyAd2Ad(legacyAd);
+                final Result result = conversion().legacyAd2Ad(legacyAd);
                 if (result.getAd().isPresent()) {
                     assertThat(result.getAd().get().getHeading(), equalTo(heading));
                 }
@@ -90,7 +94,7 @@ public class ConversionTest {
     @Test
     public void result_should_have_no_problems() {
         for (LegacyAd legacyAd : legacyAds()) {
-            final Result result = Conversion.legacyAd2Ad(legacyAd);
+            final Result result = conversion().legacyAd2Ad(legacyAd);
             if (result.getAd().isPresent()) {
                 assertThat(result.getProblems(), empty());
             }
