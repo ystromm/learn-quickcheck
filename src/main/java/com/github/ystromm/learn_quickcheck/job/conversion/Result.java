@@ -9,6 +9,7 @@ import lombok.Builder;
 import lombok.NonNull;
 import lombok.Singular;
 import lombok.Value;
+import lombok.experimental.Wither;
 
 import java.util.Optional;
 import java.util.Set;
@@ -25,10 +26,11 @@ public class Result {
     @NonNull
     private Optional<Ad> ad;
     @Singular
+    @Wither
     @NonNull
     private Set<Problem> problems;
 
-    public static Result empty(LegacyAd legacyAd) {
-        return Result.builder().legacyAd(legacyAd).ad(Optional.<Ad>empty()).problems(ImmutableSet.<Problem>of()).build();
+    public static ResultBuilder empty(LegacyAd legacyAd) {
+        return Result.builder().legacyAd(legacyAd).ad(Optional.<Ad>empty()).problems(ImmutableSet.<Problem>of());
     }
 }

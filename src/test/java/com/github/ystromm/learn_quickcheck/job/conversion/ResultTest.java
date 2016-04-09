@@ -13,12 +13,12 @@ import static org.hamcrest.junit.MatcherAssert.assertThat;
 public class ResultTest {
     @Test
     public void empty_should_have_no_problems() {
-        assertThat(Result.empty(legacyAd()).getProblems(), empty());
+        assertThat(Result.empty(legacyAd()).build().getProblems(), empty());
     }
 
     @Test
     public void empty_should_not_have_an_ad() {
-        assertThat(Result.empty(legacyAd()).getAd(), equalTo(Optional.<Ad>empty()));
+        assertThat(Result.empty(legacyAd()).build().getAd(), equalTo(Optional.<Ad>empty()));
     }
 
     private LegacyAd legacyAd() {

@@ -65,7 +65,6 @@ public class ConversionTest {
         return Iterables.toIterable(new LegacyAds());
     }
 
-    @Ignore
     @Test
     public void empty_descriptions_should_have_problem_empty_description() {
         for (LegacyAd legacyAd : legacyAds()) {
@@ -97,5 +96,4 @@ public class ConversionTest {
             }
         }
     }
-
 }
