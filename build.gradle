@@ -5,9 +5,14 @@ repositories {
 }
 
 dependencies {
-    testCompile "net.java.quickcheck:quickcheck-all:0.6"
+    compile 'org.projectlombok:lombok:1.16.8'
+    compile "com.google.guava:guava:19.0"
+    testCompile 'org.hamcrest:hamcrest-junit:2.0.0.0'
+    testCompile('net.java:quickcheck:0.6') {
+        exclude module: 'quickcheck-src-generator'
+    }
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = "2.9"
+    gradleVersion = "2.12"
 }
